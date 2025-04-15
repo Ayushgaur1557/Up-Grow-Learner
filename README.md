@@ -21,6 +21,7 @@ UpGrowLearn is a modern, responsive e-learning management system built with Reac
 - **Routing** React Router DOM
 - **Backend:** Node.js, Express 
 - **Tools:** RTK Query Redux Toolkit
+- **Cloudinary:** upload, store, manage, optimize, and deliver media files — especially images and videos 
 - **Database:** MongoDB /  (mention yours)
 - **Other Tools:** JWT, Axios, ESLint, etc.
 
