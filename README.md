@@ -35,8 +35,6 @@ UpGrowLearn is a modern, responsive e-learning management system built with Reac
 
 ![Screenshot 2025-05-02 132443](https://github.com/user-attachments/assets/d20c9942-54e4-4a64-b81b-9d940fb9652e)
 
-[Screenshot 2025-05-02 131323](https://github.com/user-attachments/assets/15d0d43b-bebf-4bab-b6cf-ff825da2ea8d)
-
 ![Screenshot 2025-05-02 131302](https://github.com/user-attachments/assets/ae3d860f-7e3c-4647-b8b2-7755dea187b8)
 
 ![Screenshot 2025-05-02 131224](https://github.com/user-attachments/assets/f9622f2c-cd02-4d8a-b6fe-166a94b0548c)
