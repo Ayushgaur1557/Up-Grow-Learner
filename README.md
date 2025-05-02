@@ -13,7 +13,7 @@ UpGrowLearn is a modern, responsive e-learning management system built with Reac
 - Progress tracking
 - Admin dashboard to manage courses
 - Adding lecture and managing them
-- Responsive UI with modern design![Uploading Screenshot 2025-05-02 131354.png…]()
+- Responsive UI with modern design!
 
 
 ## 🛠️ Tech Stack
@@ -30,12 +30,20 @@ UpGrowLearn is a modern, responsive e-learning management system built with Reac
 
 
 [Screenshot 2025-05-02 131323](https://github.com/user-attachments/assets/15d0d43b-bebf-4bab-b6cf-ff825da2ea8d)
+
 ![Screenshot 2025-05-02 131302](https://github.com/user-attachments/assets/ae3d860f-7e3c-4647-b8b2-7755dea187b8)
+
 ![Screenshot 2025-05-02 131224](https://github.com/user-attachments/assets/f9622f2c-cd02-4d8a-b6fe-166a94b0548c)
+
 ![Screenshot 2025-05-02 130449](https://github.com/user-attachments/assets/fa3010c9-4969-4ac1-929e-f30bd524980a)
+
 ![Screenshot 2025-05-02 130228](https://github.com/user-attachments/assets/88f6ecfd-3e80-4359-a423-3694c850984b)
+
 ![Screenshot 2025-05-02 125916](https://github.com/user-attachments/assets/0e82ccf0-becf-4f28-b15b-fcc5ab2b0e9a)
+
 ![Screenshot 2025-05-02 125807](https://github.com/user-attachments/assets/83e1fe36-3c9b-4e91-a231-dc705ae889c5)
+
 ![Screenshot 2025-05-02 125544](https://github.com/user-attachments/assets/8b162ed1-ac33-46a7-b901-0e2a7e604488)
+
 ![Screenshot 2025-05-02 125406](https://github.com/user-attachments/assets/19a36689-877d-498d-913f-12f09cfb54f6)
 
