@@ -33,17 +33,17 @@ UpGrowLearn is a modern, responsive e-learning management system built with Reac
 
 ![Screenshot 2025-05-02 130228](https://github.com/user-attachments/assets/88f6ecfd-3e80-4359-a423-3694c850984b)
 
+![Screenshot 2025-05-02 125916](https://github.com/user-attachments/assets/0e82ccf0-becf-4f28-b15b-fcc5ab2b0e9a)
+
+![Screenshot 2025-05-02 131302](https://github.com/user-attachments/assets/ae3d860f-7e3c-4647-b8b2-7755dea187b8)
+
 ![Screenshot 2025-05-02 132505](https://github.com/user-attachments/assets/4d1a4053-ee99-43d3-8da2-0ad66bb00bdd)
 
 ![Screenshot 2025-05-02 132443](https://github.com/user-attachments/assets/d20c9942-54e4-4a64-b81b-9d940fb9652e)
 
-![Screenshot 2025-05-02 131302](https://github.com/user-attachments/assets/ae3d860f-7e3c-4647-b8b2-7755dea187b8)
-
 ![Screenshot 2025-05-02 131224](https://github.com/user-attachments/assets/f9622f2c-cd02-4d8a-b6fe-166a94b0548c)
 
 ![Screenshot 2025-05-02 130449](https://github.com/user-attachments/assets/fa3010c9-4969-4ac1-929e-f30bd524980a)
-
-![Screenshot 2025-05-02 125916](https://github.com/user-attachments/assets/0e82ccf0-becf-4f28-b15b-fcc5ab2b0e9a)
 
 ![Screenshot 2025-05-02 125807](https://github.com/user-attachments/assets/83e1fe36-3c9b-4e91-a231-dc705ae889c5)
 
