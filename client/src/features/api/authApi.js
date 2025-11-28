@@ -3,7 +3,7 @@ import { userLoggedIn, userLoggedOut } from "../authSlice";
 import { USER_API } from "@/config/apiConfig";
 
 // const USER_API = "http://localhost:8080/api/v1/user/"
-// const USER_API = "https://up-grow-learner-e5cy.vercel.app/api/v1/user/"
+const USER_API = "https://up-grow-learner-e5cy.vercel.app/api/v1/user/"
 
 export const authApi = createApi({
     reducerPath:"authApi",
