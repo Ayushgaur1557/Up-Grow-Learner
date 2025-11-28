@@ -10,28 +10,41 @@ export const authApi = createApi({
         credentials:'include'
     }),
     endpoints: (builder) => ({
-        registerUser: builder.mutation({
-            query: (inputData) => ({
-                url:"register",
-                method:"POST",
-                body:inputData
-            })
-        }),
+       registerUser: builder.mutation({
+  query: (inputData) => ({
+    url: "register",
+    method: "POST",
+    body: inputData,
+  }),
+  async onQueryStarted(_, { queryFulfilled }) {
+    try {
+      const { data } = await queryFulfilled;
+      console.log('Register success:', data);
+    } catch (err) {
+      console.log('Register error status:', err?.error?.status);
+      console.log('Register error data:', err?.error?.data);
+      console.log('Register error message:', err?.error?.data?.message);
+    }
+  },
+}),
+
         loginUser: builder.mutation({
-            query: (inputData) => ({
-                url:"login",
-                method:"POST",
-                body:inputData
-            }),
-            async onQueryStarted(_, {queryFulfilled, dispatch}) {
-                try {
-                    const result = await queryFulfilled;
-                    dispatch(userLoggedIn({user:result.data.user}));
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-        }),
+  query: (inputData) => ({
+    url: "login",
+    method: "POST",
+    body: inputData,
+  }),
+  async onQueryStarted(_, { queryFulfilled, dispatch }) {
+    try {
+      const result = await queryFulfilled;
+      dispatch(userLoggedIn({ user: result.data.user }));
+    } catch (err) {
+     
+      console.log('Login error status:', err?.error?.status);
+      console.log('Login error data:', err?.error?.data);
+      console.log('Login error message:', err?.error?.data?.message);
+    }
+  },}),
         logoutUser: builder.mutation({
             query: () => ({
                 url:"logout",
