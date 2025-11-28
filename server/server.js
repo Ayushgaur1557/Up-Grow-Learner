@@ -1,4 +1,4 @@
-// api/server.js  (for Vercel)
+// server/api/server.js
 
 import express from "express";
 import dotenv from "dotenv";
@@ -22,14 +22,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL,     
-  "http://localhost:5173",  
+  process.env.FRONTEND_URL,     // e.g. https://up-grow-learner-1wkz.vercel.app
+  "http://localhost:5173",
 ].filter(Boolean);
 
 app.use(
   cors({
     origin(origin, callback) {
-      // allow tools like Postman (no origin)
+      // allow Postman / curl (no origin header)
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) return callback(null, true);
       return callback(new Error("Not allowed by CORS"));
