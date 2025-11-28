@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "scripts": {
+ "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "engines": {
-    "node": "18.x"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.6.0",
