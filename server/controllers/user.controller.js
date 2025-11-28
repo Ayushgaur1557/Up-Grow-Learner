@@ -38,12 +38,15 @@ export const register = async (req, res) => {
         message: "Account created successfully.",
       });
     } catch (error) {
-      console.error("Register error:", error);
-      return res.status(500).json({
-        success: false,
-        message: "Failed to register",
-      });
-    }
+  console.log("LOGIN ERROR >>>", error);         // 👈 NEW: log full error
+  console.log("ENV CHECK >>>", {
+    hasMongoUri: !!process.env.MONGO_URI,
+    hasSecretKey: !!process.env.SECRET_KEY,
+  });                                           // 👈 helpful check
+  return res
+    .status(500)
+    .json({ success: false, message: "Failed to login" });
+}
   };
   
   
