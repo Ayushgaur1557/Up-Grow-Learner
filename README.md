@@ -3,7 +3,7 @@
 
 UpGrowLearn is a modern, responsive e-learning management system built with React and Vite, designed to help users access courses, track progress, and learn efficiently.
 
-Live: URL ( up-grow-learner-1wkz.vercel.app )
+Live: URL (https://up-grow-learner-1wkz.vercel.app/)
 
 ## 🚀 Features
 
