@@ -1,7 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-// import { COURSE_PROGRESS_API } from "@/config/apiConfig";
-
-// const COURSE_PROGRESS_API = "http://localhost:8080/api/v1/progress";
 const COURSE_PROGRESS_API = "https://up-grow-learner-e5cy.vercel.app/api/v1/progress";
 
 
