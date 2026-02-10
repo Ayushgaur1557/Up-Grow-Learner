@@ -5,6 +5,7 @@ import { courseApi } from "@/features/api/courseApi";
 import { purchaseApi } from "@/features/api/purchaseApi";
 import { courseProgressApi } from "@/features/api/courseProgressApi";
 
+
 const rootRedcuer = combineReducers({
     [authApi.reducerPath]:authApi.reducer,
     [courseApi.reducerPath]:courseApi.reducer,
