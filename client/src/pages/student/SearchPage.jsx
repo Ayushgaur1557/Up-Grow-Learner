@@ -28,10 +28,10 @@ const SearchPage = () => {
   return (
     <div className="max-w-7xl mx-auto p-4 md:p-8">
       <div className="my-6">
-        <h1 className="font-bold text-xl md:text-2xl">result for "{query}"</h1>
-        <p>
+        <h1 className="font-bold text-xl md:text-2xl">Results for "{query}"</h1>
+        <p className="text-muted-foreground">
           Showing results for{""}
-          <span className="text-blue-800 font-bold italic">{query}</span>
+          <span className="text-primary font-bold italic"> {query}</span>
         </p>
       </div>
       <div className="flex flex-col md:flex-row gap-10">
@@ -56,12 +56,12 @@ export default SearchPage;
 
 const CourseNotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-32 dark:bg-gray-900 p-6">
+    <div className="ui-card flex flex-col items-center justify-center min-h-32 rounded-lg p-6">
       <AlertCircle className="text-red-500 h-16 w-16 mb-4" />
-      <h1 className="font-bold text-2xl md:text-4xl text-gray-800 dark:text-gray-200 mb-2">
+      <h1 className="font-bold text-2xl md:text-4xl text-foreground mb-2">
         Course Not Found
       </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+      <p className="text-lg text-muted-foreground mb-4">
         Sorry, we couldn't find the course you're looking for.
       </p>
       <Link to="/" className="italic">
@@ -73,7 +73,7 @@ const CourseNotFound = () => {
 
 const CourseSkeleton = () => {
   return (
-    <div className="flex-1 flex flex-col md:flex-row justify-between border-b border-gray-300 py-4">
+    <div className="flex-1 flex flex-col md:flex-row justify-between border-b border-border py-4">
       <div className="h-32 w-full md:w-64">
         <Skeleton className="h-full w-full object-cover" />
       </div>

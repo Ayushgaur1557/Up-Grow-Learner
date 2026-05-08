@@ -114,8 +114,8 @@ const Profile = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950">
-        <h1 className="text-center text-xl font-medium text-slate-100">
+      <div className="min-h-screen flex items-center justify-center">
+        <h1 className="text-center text-xl font-medium text-muted-foreground">
           Profile Loading...
         </h1>
       </div>
@@ -125,7 +125,7 @@ const Profile = () => {
   // If user didn't load correctly (null / undefined)
   if (!user) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-950 text-slate-100 gap-4">
+      <div className="min-h-screen flex flex-col items-center justify-center text-foreground gap-4">
         <p className="text-lg">Unable to load profile.</p>
         <Button onClick={() => navigate("/login")}>Go to Login</Button>
       </div>
@@ -133,61 +133,61 @@ const Profile = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+    <div className="min-h-screen w-full relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-10 left-0 w-60 h-60 bg-fuchsia-500/30 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-500/25 blur-3xl rounded-full" />
+        <div className="absolute -top-10 left-0 w-60 h-60 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-2)_18%,transparent)]" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-3)_16%,transparent)]" />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
-        className="max-w-5xl mx-auto px-4 py-10 text-slate-100"
+        className="max-w-5xl mx-auto px-4 py-10 text-foreground"
       >
-        <h1 className="font-extrabold text-3xl md:text-4xl text-center md:text-left bg-gradient-to-r from-fuchsia-300 via-indigo-300 to-sky-300 bg-clip-text text-transparent mb-6">
+        <h1 className="brand-text font-extrabold text-3xl md:text-4xl text-center md:text-left mb-6">
           Profile
         </h1>
 
         {/* Profile Info */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-slate-950/80 rounded-2xl shadow-2xl p-6 md:p-8 backdrop-blur-xl border border-slate-800">
+        <div className="ui-card flex flex-col md:flex-row items-center md:items-start gap-8 rounded-lg p-6 md:p-8">
           <div
             ref={avatarRef}
             className="flex flex-col items-center text-center md:text-left"
           >
-            <Avatar className="h-24 w-24 md:h-32 md:w-32 mb-4 shadow-md ring-2 ring-fuchsia-400/80">
+            <Avatar className="h-24 w-24 md:h-32 md:w-32 mb-4 shadow-md ring-2 ring-primary/60">
               <AvatarImage
                 src={user?.photoUrl || "https://github.com/shadcn.png"}
                 alt={user?.name || "User avatar"}
               />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-muted-foreground">
               Keep your profile up to date.
             </p>
           </div>
 
           <div className="w-full">
             <div className="mb-2">
-              <h2 className="font-semibold text-slate-100">
+              <h2 className="font-semibold text-foreground">
                 Name:
-                <span className="ml-2 text-slate-300 font-normal">
+                <span className="ml-2 text-muted-foreground font-normal">
                   {user?.name || "—"}
                 </span>
               </h2>
             </div>
             <div className="mb-2">
-              <h2 className="font-semibold text-slate-100">
+              <h2 className="font-semibold text-foreground">
                 Email:
-                <span className="ml-2 text-slate-300 font-normal">
+                <span className="ml-2 text-muted-foreground font-normal">
                   {user?.email || "—"}
                 </span>
               </h2>
             </div>
             <div className="mb-2">
-              <h2 className="font-semibold text-slate-100">
+              <h2 className="font-semibold text-foreground">
                 Role:
-                <span className="ml-2 text-fuchsia-300 font-medium">
+                <span className="ml-2 text-primary font-medium">
                   {user?.role?.toUpperCase() || "STUDENT"}
                 </span>
               </h2>
@@ -199,10 +199,10 @@ const Profile = () => {
                   Edit Profile
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-slate-950 text-slate-100 rounded-xl shadow-2xl border border-slate-800">
+              <DialogContent className="bg-popover text-popover-foreground rounded-lg shadow-2xl border border-border">
                 <DialogHeader>
                   <DialogTitle>Edit Profile</DialogTitle>
-                  <DialogDescription className="text-slate-300">
+                  <DialogDescription>
                     Make changes to your profile here. Click save when you're
                     done.
                   </DialogDescription>
@@ -215,7 +215,7 @@ const Profile = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Name"
-                      className="col-span-3 bg-slate-900 border-slate-700"
+                      className="col-span-3"
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
@@ -224,7 +224,7 @@ const Profile = () => {
                       onChange={onChangeHandler}
                       type="file"
                       accept="image/*"
-                      className="col-span-3 bg-slate-900 border-slate-700"
+                      className="col-span-3"
                     />
                   </div>
                 </div>
@@ -260,15 +260,15 @@ const Profile = () => {
 
         {/* Courses */}
         <div className="mt-10">
-          <h2 className="font-semibold text-lg text-slate-100 mb-3">
+          <h2 className="font-semibold text-lg text-foreground mb-3">
             Courses you're enrolled in
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {enrolledCourses.length === 0 ? (
-              <h3 className="text-slate-400 text-sm col-span-full">
+              <h3 className="text-muted-foreground text-sm col-span-full">
                 You haven't enrolled yet. Start from{" "}
                 <button
-                  className="underline text-fuchsia-300"
+                  className="underline text-primary"
                   onClick={() => navigate("/")}
                 >
                   Explore Courses

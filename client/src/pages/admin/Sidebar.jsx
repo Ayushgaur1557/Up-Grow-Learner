@@ -37,10 +37,10 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+    <div className="flex h-screen text-foreground">
       {/* Mobile toggle */}
       <button
-        className="lg:hidden fixed top-20 left-4 z-50 p-2 rounded-md bg-slate-950/90 shadow-lg border border-slate-700"
+        className="lg:hidden fixed top-20 left-4 z-50 p-2 rounded-md bg-background/90 shadow-lg border border-border"
         onClick={toggleSidebar}
       >
         {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -50,18 +50,17 @@ const Sidebar = () => {
       <aside
         ref={sidebarRef}
         className={`fixed top-16 left-0 z-30 h-screen w-[250px] sm:w-[280px] 
-          bg-gradient-to-b from-slate-950/98 via-indigo-950/95 to-slate-950/98 
-          border-r border-slate-800 p-5 space-y-8 shadow-2xl transform transition-transform duration-300 ease-in-out
+          bg-sidebar text-sidebar-foreground border-r border-sidebar-border p-5 space-y-8 shadow-2xl transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"} 
           lg:translate-x-0 lg:static lg:block`}
       >
         <div
           ref={glowRef}
-          className="absolute -top-10 left-10 w-40 h-40 bg-fuchsia-500/20 blur-3xl rounded-full pointer-events-none"
+          className="absolute -top-10 left-10 w-40 h-40 rounded-full blur-3xl pointer-events-none bg-[color-mix(in_oklch,var(--brand-2)_18%,transparent)]"
         ></div>
 
         <div className="space-y-6 relative z-10">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             Instructor Panel
           </p>
           <SidebarLink
@@ -82,8 +81,8 @@ const Sidebar = () => {
       {/* Main content */}
       <div className="flex-1 overflow-y-auto p-6 md:p-10 relative">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -top-10 right-10 w-52 h-52 bg-indigo-500/25 blur-3xl rounded-full" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[420px] h-[420px] border border-slate-800/60 rounded-[36px] bg-slate-900/40" />
+          <div className="absolute -top-10 right-10 w-52 h-52 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand)_14%,transparent)]" />
+          <div className="soft-grid absolute inset-0 opacity-40" />
         </div>
         <Outlet />
       </div>
@@ -99,8 +98,8 @@ const SidebarLink = ({ to, icon: Icon, label, active }) => (
     className={`flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-sm 
       transition-all hover:translate-x-1 ${
         active
-          ? "bg-slate-800 text-fuchsia-300 border border-fuchsia-500/40 shadow-lg"
-          : "text-slate-200 hover:bg-slate-900/80 border border-transparent"
+          ? "bg-sidebar-accent text-sidebar-accent-foreground border border-sidebar-border shadow-sm"
+          : "text-sidebar-foreground hover:bg-sidebar-accent/60 border border-transparent"
       }`}
   >
     <Icon size={22} />

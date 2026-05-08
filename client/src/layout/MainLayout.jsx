@@ -8,7 +8,7 @@ const MainLayout = () => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-foreground">
+    <div className="flex flex-col min-h-screen text-foreground">
       <Navbar />
       <div className="flex-1 mt-16 overflow-x-hidden">
         <AnimatePresence mode="wait">
@@ -17,7 +17,7 @@ const MainLayout = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             className="h-full"
           >
             <Outlet />

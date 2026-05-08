@@ -63,38 +63,38 @@ const CourseDetail = () => {
   return (
     <div className="space-y-5 relative">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-10 left-0 w-56 h-56 bg-fuchsia-500/30 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-500/25 blur-3xl rounded-full" />
+        <div className="absolute -top-10 left-0 w-56 h-56 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-2)_18%,transparent)]" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-3)_16%,transparent)]" />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
-        className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white"
+        className="ui-card text-foreground"
       >
         <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 flex flex-col gap-3">
           <h1 className="font-extrabold text-2xl md:text-3xl tracking-tight">
             {course?.courseTitle}
           </h1>
-          <p className="text-base md:text-lg text-slate-200">
+          <p className="text-base md:text-lg text-muted-foreground">
             {course?.subTitle || "Course Sub-title"}
           </p>
-          <p className="text-sm md:text-base text-slate-300">
+          <p className="text-sm md:text-base text-muted-foreground">
             Created by{" "}
-            <span className="text-fuchsia-300 underline italic">
+            <span className="text-primary underline italic">
               {course?.creator.name}
             </span>
           </p>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <BadgeInfo size={16} />
               <p>Last updated {course?.createdAt.split("T")[0]}</p>
             </div>
-            <span className="text-xs px-2 py-1 rounded-full bg-white/10 border border-white/20">
+            <span className="text-xs px-2 py-1 rounded-full bg-secondary/70 border border-border text-secondary-foreground">
               Students enrolled: {course?.enrolledStudents.length}
             </span>
-            <span className="text-xs px-2 py-1 rounded-full bg-white/10 border border-white/20">
+            <span className="text-xs px-2 py-1 rounded-full bg-secondary/70 border border-border text-secondary-foreground">
               Level: {course?.courseLevel}
             </span>
           </div>
@@ -110,7 +110,7 @@ const CourseDetail = () => {
           {[...chips, ...chips].map((chip, idx) => (
             <span
               key={`${chip}-${idx}`}
-              className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-slate-100"
+              className="inline-flex items-center px-3 py-1 rounded-full bg-secondary/70 border border-border text-secondary-foreground"
             >
               {chip}
             </span>
@@ -125,17 +125,17 @@ const CourseDetail = () => {
           transition={{ duration: 0.45, delay: 0.05 }}
           className="w-full lg:w-1/2 space-y-5"
         >
-          <h1 className="font-bold text-xl md:text-2xl text-slate-100">
+          <h1 className="font-bold text-xl md:text-2xl text-foreground">
             Description
           </h1>
           <p
-            className="text-sm leading-relaxed text-slate-200/90 bg-slate-950/50 rounded-xl p-4 border border-slate-800"
+            className="ui-card text-sm leading-relaxed rounded-lg p-4"
             dangerouslySetInnerHTML={{ __html: course.description }}
           />
-          <Card className="bg-slate-950/80 border border-slate-800 text-slate-100">
+          <Card>
             <CardHeader>
               <CardTitle>Course Content</CardTitle>
-              <CardDescription className="text-slate-300">
+              <CardDescription>
                 {course.lectures.length} lectures
               </CardDescription>
             </CardHeader>
@@ -145,7 +145,7 @@ const CourseDetail = () => {
                   key={lecture._id}
                   className="flex items-center gap-3 text-sm"
                 >
-                  <span className="text-fuchsia-400">
+                  <span className="text-primary">
                     {lecture.isPreviewFree ? (
                       <PlayCircle size={16} />
                     ) : (
@@ -165,9 +165,9 @@ const CourseDetail = () => {
           transition={{ duration: 0.45, delay: 0.1 }}
           className="w-full lg:w-1/3"
         >
-          <Card className="shadow-2xl bg-slate-950/90 border border-slate-800">
+          <Card className="shadow-2xl">
             <CardContent className="p-4 flex flex-col">
-              <div className="w-full aspect-video mb-4 overflow-hidden rounded-lg border border-slate-700">
+              <div className="w-full aspect-video mb-4 overflow-hidden rounded-lg border border-border">
                 <ReactPlayer
                   width="100%"
                   height={"100%"}
@@ -175,15 +175,15 @@ const CourseDetail = () => {
                   controls={true}
                 />
               </div>
-              <h1 className="font-semibold mb-1 text-slate-100">
+              <h1 className="font-semibold mb-1 text-foreground">
                 {course.lectures[0]?.lectureTitle || "Lecture 1"}
               </h1>
-              <Separator className="my-2 bg-slate-700" />
-              <h1 className="text-lg md:text-xl font-semibold mb-1 text-slate-100">
+              <Separator className="my-2" />
+              <h1 className="text-lg md:text-xl font-semibold mb-1 text-foreground">
                 Course Price
               </h1>
-              <p className="text-2xl font-bold text-fuchsia-300">
-                ₹{course.coursePrice}
+              <p className="text-2xl font-bold text-primary">
+                Rs. {course.coursePrice}
               </p>
             </CardContent>
             <CardFooter className="flex justify-center p-4">

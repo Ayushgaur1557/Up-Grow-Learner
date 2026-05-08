@@ -46,13 +46,13 @@ const Courses = () => {
     return <h1 className="text-center mt-10">Something went wrong.</h1>;
 
   return (
-    <div className="bg-background/80 py-10">
+    <div className="py-10">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <h2
           ref={headingRef}
-          className="font-bold text-3xl text-center mb-4 text-white"
+          className="font-bold text-3xl text-center mb-4"
         >
-          <span className="bg-gradient-to-r from-violet-500 via-fuchsia-500 to-indigo-500 bg-clip-text text-transparent">
+          <span className="brand-text">
             Our Courses
           </span>
         </h2>
@@ -66,7 +66,7 @@ const Courses = () => {
             {[...stripKeywords, ...stripKeywords].map((item, idx) => (
               <span
                 key={`${item}-${idx}`}
-                className="inline-flex items-center px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-gradient-to-r from-slate-800/80 to-slate-900/80 border border-slate-600/70 text-slate-100/90"
+                className="inline-flex items-center px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-secondary/70 border border-border text-secondary-foreground"
               >
                 {item}
               </span>
@@ -92,7 +92,7 @@ export default Courses;
 
 const CourseSkeleton = () => {
   return (
-    <div className="bg-card/80 shadow rounded-xl overflow-hidden border border-border/60">
+    <div className="ui-card rounded-lg overflow-hidden">
       <div className="aspect-video">
         <Skeleton className="w-full h-full" />
       </div>

@@ -138,12 +138,12 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+    <div className="min-h-screen w-full relative overflow-hidden text-foreground">
       {/* background gradients */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-24 -left-16 w-80 h-80 bg-fuchsia-500/35 blur-3xl rounded-full" />
-        <div className="absolute -bottom-32 -right-10 w-96 h-96 bg-indigo-500/35 blur-3xl rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-[48px] border border-white/5 bg-gradient-to-br from-slate-900/80 via-slate-900/40 to-slate-900/80" />
+        <div className="soft-grid absolute inset-0 opacity-60" />
+        <div className="absolute -top-24 -left-16 w-80 h-80 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-2)_20%,transparent)]" />
+        <div className="absolute -bottom-32 -right-10 w-96 h-96 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-3)_18%,transparent)]" />
       </div>
 
       <div
@@ -153,29 +153,29 @@ const Login = () => {
         {/* floating small pills */}
         <span
           ref={floatingRef1}
-          className="hidden sm:inline-flex absolute top-24 left-10 text-[11px] font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/20 text-slate-50 backdrop-blur-md"
+          className="hidden sm:inline-flex absolute top-24 left-10 text-[11px] font-semibold px-3 py-1 rounded-full bg-secondary/70 border border-border text-secondary-foreground backdrop-blur-md"
         >
           Learn. Build. Repeat.
         </span>
         <span
           ref={floatingRef2}
-          className="hidden sm:inline-flex absolute bottom-24 right-10 text-[11px] font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/20 text-slate-50 backdrop-blur-md"
+          className="hidden sm:inline-flex absolute bottom-24 right-10 text-[11px] font-semibold px-3 py-1 rounded-full bg-accent/70 border border-border text-accent-foreground backdrop-blur-md"
         >
           E-Learning Studio
         </span>
 
         <div ref={cardRef} className="w-full max-w-md">
           <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-slate-900/60 backdrop-blur-xl text-slate-300 rounded-2xl p-1 mb-4 shadow-inner border border-white/10">
+            <TabsList className="ui-card grid w-full grid-cols-2 rounded-lg p-1 mb-4">
               <TabsTrigger
                 value="signup"
-                className="rounded-xl  data-[state=active]:bg-slate-800 data-[state=active]:text-fuchsia-300 font-semibold text-sm md:text-base"
+                className="rounded-md data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground font-semibold text-sm md:text-base"
               >
                 Sign up
               </TabsTrigger>
               <TabsTrigger
                 value="login"
-                className="rounded-xl data-[state=active]:bg-slate-800 data-[state=active]:text-fuchsia-300 font-semibold text-sm md:text-base"
+                className="rounded-md data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground font-semibold text-sm md:text-base"
               >
                 Login
               </TabsTrigger>
@@ -183,12 +183,12 @@ const Login = () => {
 
             {/* Signup */}
             <TabsContent value="signup">
-              <Card className="bg-slate-900/80 border border-white/10 shadow-2xl rounded-3xl backdrop-blur-xl">
+              <Card className="shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-2xl md:text-3xl font-extrabold">
                     Create Account
                   </CardTitle>
-                  <CardDescription className="text-sm md:text-base text-slate-300/90">
+                  <CardDescription className="text-sm md:text-base">
                     Fill in your details to start learning.
                   </CardDescription>
                 </CardHeader>
@@ -203,7 +203,7 @@ const Login = () => {
                       onChange={(e) => changeInputHandler(e, "signup")}
                       placeholder="Mohit Singh"
                       required
-                      className="h-11 text-sm md:text-base font-medium bg-slate-900/80 border-slate-700 focus-visible:ring-2 focus-visible:ring-fuchsia-500"
+                      className="h-11 text-sm md:text-base font-medium"
                     />
                   </div>
                   <div className="space-y-2">
@@ -217,7 +217,7 @@ const Login = () => {
                       onChange={(e) => changeInputHandler(e, "signup")}
                       placeholder="you@example.com"
                       required
-                      className="h-11 text-sm md:text-base font-medium bg-slate-900/80 border-slate-700 focus-visible:ring-2 focus-visible:ring-fuchsia-500"
+                      className="h-11 text-sm md:text-base font-medium"
                     />
                   </div>
                   <div className="space-y-2">
@@ -234,7 +234,7 @@ const Login = () => {
                       onChange={(e) => changeInputHandler(e, "signup")}
                       placeholder="••••••••"
                       required
-                      className="h-11 text-sm md:text-base font-medium bg-slate-900/80 border-slate-700 focus-visible:ring-2 focus-visible:ring-fuchsia-500"
+                      className="h-11 text-sm md:text-base font-medium"
                     />
                   </div>
                   <div className="space-y-2">
@@ -247,7 +247,7 @@ const Login = () => {
                         setSignupInput((prev) => ({ ...prev, role: value }))
                       }
                     >
-                      <SelectTrigger className="w-full h-11 bg-slate-900/80 border-slate-700 focus-visible:ring-2 focus-visible:ring-fuchsia-500 text-sm md:text-base">
+                      <SelectTrigger className="w-full h-11 text-sm md:text-base">
                         <SelectValue placeholder="Select a role" />
                       </SelectTrigger>
                       <SelectContent>
@@ -259,7 +259,7 @@ const Login = () => {
                 </CardContent>
                 <CardFooter>
                   <Button
-                    className="w-full h-11 bg-fuchsia-600 hover:bg-fuchsia-700 text-sm md:text-base font-semibold transition-colors duration-300"
+                    className="w-full h-11 text-sm md:text-base font-semibold transition-colors duration-300"
                     disabled={registerIsLoading}
                     onClick={() => handleRegistration("signup")}
                   >
@@ -278,12 +278,12 @@ const Login = () => {
 
             {/* Login */}
             <TabsContent value="login">
-              <Card className="bg-slate-900/80 border border-white/10 shadow-2xl rounded-3xl backdrop-blur-xl">
+              <Card className="shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-2xl md:text-3xl font-extrabold">
                     Welcome back
                   </CardTitle>
-                  <CardDescription className="text-sm md:text-base text-slate-300/90">
+                  <CardDescription className="text-sm md:text-base">
                     Enter your credentials to continue.
                   </CardDescription>
                 </CardHeader>
@@ -299,7 +299,7 @@ const Login = () => {
                       onChange={(e) => changeInputHandler(e, "login")}
                       placeholder="you@example.com"
                       required
-                      className="h-11 text-sm md:text-base font-medium bg-slate-900/80 border-slate-700 focus-visible:ring-2 focus-visible:ring-fuchsia-500"
+                      className="h-11 text-sm md:text-base font-medium"
                     />
                   </div>
                   <div className="space-y-2">
@@ -316,13 +316,13 @@ const Login = () => {
                       onChange={(e) => changeInputHandler(e, "login")}
                       placeholder="••••••••"
                       required
-                      className="h-11 text-sm md:text-base font-medium bg-slate-900/80 border-slate-700 focus-visible:ring-2 focus-visible:ring-fuchsia-500"
+                      className="h-11 text-sm md:text-base font-medium"
                     />
                   </div>
                 </CardContent>
                 <CardFooter>
                   <Button
-                    className="w-full h-11 bg-fuchsia-600 hover:bg-fuchsia-700 text-sm md:text-base font-semibold transition-colors duration-300"
+                    className="w-full h-11 text-sm md:text-base font-semibold transition-colors duration-300"
                     disabled={loginIsLoading}
                     onClick={() => handleRegistration("login")}
                   >

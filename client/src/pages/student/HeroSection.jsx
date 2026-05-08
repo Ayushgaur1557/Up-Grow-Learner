@@ -118,12 +118,13 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-br from-fuchsia-700 via-violet-700 to-indigo-800 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 px-4 pt-[72px] pb-16 text-center overflow-hidden"
+      className="relative px-4 pt-[72px] pb-16 text-center overflow-hidden"
     >
       {/* gradient blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-24 -left-10 w-72 h-72 bg-fuchsia-400/40 blur-3xl rounded-full animate-pulse" />
-        <div className="absolute -bottom-32 -right-10 w-80 h-80 bg-indigo-400/40 blur-3xl rounded-full animate-pulse" />
+        <div className="soft-grid absolute inset-0 opacity-60" />
+        <div className="absolute -top-24 -left-10 w-72 h-72 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-2)_22%,transparent)]" />
+        <div className="absolute -bottom-32 -right-10 w-80 h-80 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-3)_20%,transparent)]" />
       </div>
 
       {/* floating label words */}
@@ -132,7 +133,7 @@ const HeroSection = () => {
           <span
             key={item.text}
             ref={(el) => (floatingRefs.current[index] = el)}
-            className={`absolute text-[11px] sm:text-xs font-semibold tracking-wide text-white/60 bg-white/10 px-3 py-1 rounded-full border border-white/20 backdrop-blur-md ${item.pos}`}
+            className={`absolute text-[11px] sm:text-xs font-semibold tracking-wide text-muted-foreground bg-card/60 px-3 py-1 rounded-full border border-border backdrop-blur-md ${item.pos}`}
           >
             {item.text}
           </span>
@@ -142,17 +143,17 @@ const HeroSection = () => {
       <div className="max-w-3xl mx-auto">
         <h1
           ref={titleRef}
-          className="text-white text-3xl md:text-5xl font-extrabold mb-2 leading-tight"
+          className="text-foreground text-3xl md:text-5xl font-extrabold mb-2 leading-tight"
         >
           Find the{" "}
-          <span className="bg-gradient-to-r from-yellow-300 via-white to-cyan-200 bg-clip-text text-transparent">
+          <span className="brand-text">
             Best Courses
           </span>{" "}
           for You
         </h1>
         <p
           ref={subtitleRef}
-          className="text-violet-100/90 dark:text-gray-200 mb-4 text-sm md:text-base"
+          className="text-muted-foreground mb-4 text-sm md:text-base"
         >
           Discover, learn, and upskill with curated content from top instructors.
         </p>
@@ -166,7 +167,7 @@ const HeroSection = () => {
             {[...heroKeywords, ...heroKeywords].map((item, idx) => (
               <span
                 key={`${item}-${idx}`}
-                className="inline-flex items-center px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-white/10 border border-white/20 text-violet-50 backdrop-blur-md"
+                className="inline-flex items-center px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-secondary/70 border border-border text-secondary-foreground backdrop-blur-md"
               >
                 {item}
               </span>
@@ -177,18 +178,18 @@ const HeroSection = () => {
         <form
           ref={formRef}
           onSubmit={searchHandler}
-          className="flex flex-col sm:flex-row items-stretch bg-white/95 dark:bg-slate-900/90 rounded-full shadow-lg overflow-hidden max-w-xl mx-auto mb-4"
+          className="ui-card flex flex-col sm:flex-row items-stretch rounded-full overflow-hidden max-w-xl mx-auto mb-4 p-1"
         >
           <Input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search courses, topics, or instructors..."
-            className="flex-grow border-none focus-visible:ring-0 px-4 py-3 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 bg-transparent"
+            className="flex-grow border-none focus-visible:ring-0 px-4 py-3 text-sm md:text-base text-foreground placeholder:text-muted-foreground bg-transparent"
           />
           <Button
             type="submit"
-            className="bg-violet-700 dark:bg-violet-800 text-white px-6 py-3 text-sm md:text-base font-semibold rounded-b-md sm:rounded-b-none sm:rounded-r-full hover:bg-violet-800 dark:hover:bg-violet-900"
+            className="px-6 py-3 text-sm md:text-base font-semibold rounded-full"
           >
             Search
           </Button>
@@ -197,7 +198,7 @@ const HeroSection = () => {
         <div ref={exploreRef}>
           <Button
             onClick={() => navigate(`/course/search?query=`)}
-            className="bg-white/10 dark:bg-gray-900/80 text-violet-50 font-medium px-5 py-2 text-sm md:text-base rounded-full hover:bg-white/20 dark:hover:bg-gray-800 transition border border-white/20"
+            className="font-medium px-5 py-2 text-sm md:text-base rounded-full"
           >
             Explore All Courses
           </Button>

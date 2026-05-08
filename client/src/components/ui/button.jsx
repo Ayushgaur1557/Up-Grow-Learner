@@ -6,21 +6,21 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold transition-all hover:-translate-y-0.5 active:scale-95 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[3px] focus-visible:ring-fuchsia-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:scale-95 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
   {
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-fuchsia-500 via-indigo-500 to-sky-500 text-white shadow-lg hover:brightness-110 hover:shadow-xl",
+          "brand-gradient text-primary-foreground shadow-lg hover:brightness-105 hover:shadow-xl",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/40 dark:bg-destructive/70",
         outline:
-          "border border-slate-600/60 bg-slate-900/60 text-slate-100 shadow-sm hover:bg-slate-800/80",
+          "border border-border bg-background/55 text-foreground shadow-sm hover:bg-secondary/70",
         secondary:
-          "bg-slate-800 text-slate-100 shadow-sm hover:bg-slate-700",
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost:
-          "hover:bg-slate-800/70 hover:text-slate-50 dark:hover:bg-slate-800/80",
-        link: "text-fuchsia-400 underline-offset-4 hover:underline",
+          "hover:bg-secondary/70 hover:text-secondary-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

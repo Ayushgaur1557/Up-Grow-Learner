@@ -100,17 +100,17 @@ const CourseProgress = () => {
       className="max-w-7xl mx-auto p-4 relative"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-8 left-0 w-56 h-56 bg-fuchsia-500/30 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-500/25 blur-3xl rounded-full" />
+        <div className="absolute -top-8 left-0 w-56 h-56 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-2)_18%,transparent)]" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full blur-3xl bg-[color-mix(in_oklch,var(--brand-3)_16%,transparent)]" />
       </div>
 
       {/* Header */}
       <div className="flex justify-between mb-4 items-center gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-100">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
             {courseTitle}
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-muted-foreground mt-1">
             Keep going – you’re almost there!
           </p>
         </div>
@@ -131,16 +131,16 @@ const CourseProgress = () => {
 
       {/* course-level progress bar */}
       <div className="mb-5">
-        <div className="flex items-center justify-between mb-1 text-xs text-slate-300">
+        <div className="flex items-center justify-between mb-1 text-xs text-muted-foreground">
           <span>
             Progress: {completedLectures}/{totalLectures} lectures
           </span>
           <span>{completionPercent}%</span>
         </div>
-        <div className="h-2 rounded-full bg-slate-800 overflow-hidden">
+        <div className="h-2 rounded-full bg-muted overflow-hidden">
           <div
             ref={progressBarRef}
-            className="h-full w-0 bg-gradient-to-r from-fuchsia-500 via-indigo-500 to-sky-500"
+            className="brand-gradient h-full w-0"
           />
         </div>
       </div>
@@ -151,18 +151,18 @@ const CourseProgress = () => {
           initial={{ opacity: 0, x: -12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex-1 md:w-3/5 h-fit rounded-lg shadow-lg p-4 bg-slate-950/90 border border-slate-800"
+          className="ui-card flex-1 md:w-3/5 h-fit rounded-lg p-4"
         >
           <div>
             <video
               src={currentLecture?.videoUrl || initialLecture.videoUrl}
               controls
-              className="w-full h-auto md:rounded-lg border border-slate-700"
+              className="w-full h-auto md:rounded-lg border border-border"
               onPlay={() => handleLectureProgress(currentLectureId)}
             />
           </div>
           <div className="mt-3">
-            <h3 className="font-medium text-lg text-slate-100">
+            <h3 className="font-medium text-lg text-foreground">
               {`Lecture ${
                 courseDetails.lectures.findIndex(
                   (lec) => lec._id === currentLectureId
@@ -179,9 +179,9 @@ const CourseProgress = () => {
           initial={{ opacity: 0, x: 12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col w-full md:w-2/5 border-t md:border-t-0 md:border-l border-slate-800 md:pl-4 pt-4 md:pt-0"
+          className="flex flex-col w-full md:w-2/5 border-t md:border-t-0 md:border-l border-border md:pl-4 pt-4 md:pt-0"
         >
-          <h2 className="font-semibold text-xl mb-4 text-slate-100">
+          <h2 className="font-semibold text-xl mb-4 text-foreground">
             Course Lectures
           </h2>
           <div className="flex-1 overflow-y-auto max-h-[70vh] pr-1">
@@ -192,10 +192,10 @@ const CourseProgress = () => {
                 className="mb-3"
               >
                 <Card
-                  className={`hover:cursor-pointer transition transform bg-slate-950/90 border ${
+                  className={`hover:cursor-pointer transition transform ${
                     lecture._id === currentLectureId
-                      ? "border-fuchsia-500/60 shadow-lg"
-                      : "border-slate-800"
+                      ? "border-primary/60 shadow-lg"
+                      : "border-border"
                   }`}
                   onClick={() => handleSelectLecture(lecture)}
                 >
@@ -209,11 +209,11 @@ const CourseProgress = () => {
                       ) : (
                         <CirclePlay
                           size={24}
-                          className="text-slate-400 mr-2"
+                          className="text-muted-foreground mr-2"
                         />
                       )}
                       <div>
-                        <CardTitle className="text-sm md:text-base font-medium text-slate-100">
+                        <CardTitle className="text-sm md:text-base font-medium text-foreground">
                           {lecture.lectureTitle}
                         </CardTitle>
                       </div>

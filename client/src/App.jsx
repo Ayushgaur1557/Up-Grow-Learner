@@ -133,7 +133,7 @@ function App() {
   const [isSplashDone, setIsSplashDone] = useState(false);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-foreground">
+    <main className="app-shell text-foreground">
       <ThemeProvider>
         {!isSplashDone && (
           <SplashScreen onFinish={() => setIsSplashDone(true)} />
