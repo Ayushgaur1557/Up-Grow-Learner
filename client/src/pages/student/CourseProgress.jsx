@@ -34,21 +34,38 @@ const CourseProgress = () => {
   const [currentLecture, setCurrentLecture] = useState(null);
   const progressBarRef = useRef(null);
 
+  const courseDetails = data?.data?.courseDetails;
+  const progress = data?.data?.progress || [];
+  const completed = data?.data?.completed || false;
+  const totalLectures = courseDetails?.lectures?.length || 0;
+  const completedLectures = progress.filter((p) => p.viewed).length;
+  const completionPercent = Math.round(
+    totalLectures ? (completedLectures / totalLectures) * 100 : 0
+  );
+
   useEffect(() => {
     if (completedSuccess) {
       refetch();
-      toast.success(markCompleteData.message);
+      toast.success(markCompleteData?.message);
     }
     if (inCompletedSuccess) {
       refetch();
-      toast.success(markInCompleteData.message);
+      toast.success(markInCompleteData?.message);
     }
   }, [completedSuccess, inCompletedSuccess, markCompleteData, markInCompleteData, refetch]);
+
+  useEffect(() => {
+    if (!progressBarRef.current) return;
+    gsap.to(progressBarRef.current, {
+      width: `${completionPercent}%`,
+      duration: 0.7,
+      ease: "power3.out",
+    });
+  }, [completionPercent]);
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Failed to load course details</p>;
 
-  const { courseDetails, progress, completed } = data.data;
   const { courseTitle } = courseDetails;
 
   const initialLecture =
@@ -77,21 +94,6 @@ const CourseProgress = () => {
   };
 
   const currentLectureId = currentLecture?._id || initialLecture._id;
-  const totalLectures = courseDetails.lectures.length;
-  const completedLectures = progress.filter((p) => p.viewed).length;
-  const completionPercent = Math.round(
-    totalLectures ? (completedLectures / totalLectures) * 100 : 0
-  );
-
-  useEffect(() => {
-    if (!progressBarRef.current) return;
-    gsap.to(progressBarRef.current, {
-      width: `${completionPercent}%`,
-      duration: 0.7,
-      ease: "power3.out",
-    });
-  }, [completionPercent]);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}
